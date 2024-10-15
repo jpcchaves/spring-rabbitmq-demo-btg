@@ -7,54 +7,53 @@ import org.springframework.data.mongodb.core.mapping.FieldType;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Document(collection = "tb_orders")
 public class OrderEntity {
 
-    @MongoId
-    private Long orderId;
+  @MongoId private Long orderId;
 
-    @Indexed(name = "customer_id_idx")
-    private Long customerId;
+  @Indexed(name = "customer_id_idx")
+  private Long customerId;
 
-    @Field(targetType = FieldType.DECIMAL128)
-    private BigDecimal total;
+  @Field(targetType = FieldType.DECIMAL128)
+  private BigDecimal total;
 
-    private List<OrderItemEntity> items;
+  private List<OrderItemEntity> items = new ArrayList<>();
 
-    public OrderEntity() {
-    }
+  public OrderEntity() {}
 
-    public Long getOrderId() {
-        return orderId;
-    }
+  public Long getOrderId() {
+    return orderId;
+  }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
-    }
+  public void setOrderId(Long orderId) {
+    this.orderId = orderId;
+  }
 
-    public Long getCustomerId() {
-        return customerId;
-    }
+  public Long getCustomerId() {
+    return customerId;
+  }
 
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
+  public void setCustomerId(Long customerId) {
+    this.customerId = customerId;
+  }
 
-    public BigDecimal getTotal() {
-        return total;
-    }
+  public BigDecimal getTotal() {
+    return total;
+  }
 
-    public void setTotal(BigDecimal total) {
-        this.total = total;
-    }
+  public void setTotal(BigDecimal total) {
+    this.total = total;
+  }
 
-    public List<OrderItemEntity> getItems() {
-        return items;
-    }
+  public List<OrderItemEntity> getItems() {
+    return items;
+  }
 
-    public void setItems(List<OrderItemEntity> items) {
-        this.items = items;
-    }
+  public void setItems(List<OrderItemEntity> items) {
+    this.items = items;
+  }
 }
