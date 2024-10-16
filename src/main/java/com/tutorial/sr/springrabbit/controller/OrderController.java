@@ -4,6 +4,7 @@ import com.tutorial.sr.springrabbit.dto.ApiResponse;
 import com.tutorial.sr.springrabbit.dto.OrderResponse;
 import com.tutorial.sr.springrabbit.dto.PaginationResponse;
 import com.tutorial.sr.springrabbit.service.OrderService;
+import java.util.Map;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +33,7 @@ public class OrderController {
 
     return ResponseEntity.ok(
         new ApiResponse<>(
+            Map.of("totalOnOrders", orderService.findTotalOnOrdersByCustomerId(customerId)),
             pageResponse.getContent(),
             PaginationResponse.paginationResponseFromPage(pageResponse)));
   }
