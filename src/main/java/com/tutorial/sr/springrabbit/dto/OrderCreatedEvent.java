@@ -39,4 +39,16 @@ public class OrderCreatedEvent {
   public void setItems(List<OrderItemEvent> items) {
     this.items = items;
   }
+
+  @Override
+  public String toString() {
+    return "OrderCreatedEvent{"
+        + "codigoPedido="
+        + codigoPedido
+        + ", codigoCliente="
+        + codigoCliente
+        + ", items="
+        + items
+        + '}';
+  }
 }
